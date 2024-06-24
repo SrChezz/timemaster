@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>⏳ Timemaster</title>
+  </head>
+  <body>
+
+    {% if request.user.is_authenticated %}
+    <a href="{% url 'logout' %}">Cerrar Sesión</a>
+    {% else %}
+    <a href="{% url 'login' %}">Iniciar Sesión</a>
+    {% endif %}
+    <h3>Timemaster: manage time like never before</h3>
+    
+    {% block content %} 
+    
+    {% endblock content %}
+
+    {% if messages %} 
+    <ul class="messages">
+      <ul class="messages">
+          {% for message in messages %}
+          <li>{{ message }}</li>
+          {% endfor %}
+      </ul>
+      {% endif %}
+  </body>
+</html>
